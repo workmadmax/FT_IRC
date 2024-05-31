@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:01:39 by mdouglas          #+#    #+#             */
-/*   Updated: 2024/05/31 10:09:04 by mdouglas         ###   ########.fr       */
+/*   Updated: 2024/05/31 14:09:32 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <iostream>
 # include <sys/types.h>
 # include <sys/socket.h>
+# include <sys/epoll.h>
 # include <netinet/in.h>
 # include <arpa/inet.h>
 # include <unistd.h>
@@ -25,3 +26,10 @@
 # include <vector>
 # include <algorithm>
 # include <fcntl.h>
+# include <cerrno>
+# include <sstream>
+# include "Client.hpp"
+# include "Debug.hpp"
+# include "Server.hpp"
+
+# define MAX_EVENTS 8
