@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:01:39 by mdouglas          #+#    #+#             */
-/*   Updated: 2024/06/03 15:19:25 by mdouglas         ###   ########.fr       */
+/*   Updated: 2024/06/03 18:12:01 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # include <sstream>
 # include <poll.h>
 # include <netdb.h>
+# include <errno.h>
+# include <stdio.h>
 
 # define MAX_EVENTS 10
 
