@@ -6,7 +6,7 @@
 /*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 12:55:43 by mdouglas          #+#    #+#             */
-/*   Updated: 2024/06/03 15:13:18 by mdouglas         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:51:38 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,7 @@ int main(int argc, char* argv[]) {
     std::string port = argv[1];
     std::string password = argv[2];
     Server server(port.c_str(), password.c_str());
+    server.run();
+    
     return 0;
 };
