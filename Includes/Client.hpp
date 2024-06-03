@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Client.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 10:07:31 by mdouglas          #+#    #+#             */
-/*   Updated: 2024/05/31 12:50:09 by mdouglas         ###   ########.fr       */
+/*   Updated: 2024/06/02 21:33:31 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-# include "libs.hpp"
+#include "libs.hpp"
 
 class Client
 {

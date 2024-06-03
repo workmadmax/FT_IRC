@@ -1,12 +1,17 @@
 #pragma once
 
+#include "libs.hpp"
+
 class Debug {
 public:
-    void info(const std::string &msg) {
-        std::cout << "[INFO] " << msg << std::endl;
+    void    exit_with_error(const std::string &msg) {
+        std::cerr << msg;
+        exit(EXIT_FAILURE);
     }
-
-    void error(const std::string &msg) {
-        std::cerr << "[ERROR] " << msg << std::endl;
+    void    ft_info(const std::string &msg) {
+        std::cout << msg;
+    }
+    void    ft_error(const std::string &msg) {
+        std::cerr << msg;
     }
 };
