@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Server.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:45:11 by mdouglas          #+#    #+#             */
-/*   Updated: 2024/06/02 22:01:42 by user42           ###   ########.fr       */
+/*   Updated: 2024/06/03 13:50:58 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void Server::run() {
         }
     }
 };
-
 
 void    Server::disconnect_client(int client_socket) {
     clients.erase(client_socket);

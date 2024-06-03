@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   SocketHandler.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/02 20:39:21 by user42            #+#    #+#             */
-/*   Updated: 2024/06/02 22:06:52 by user42           ###   ########.fr       */
+/*   Updated: 2024/06/03 13:58:03 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,6 @@ SocketHandler::~SocketHandler()
 		close(_epoll_fd);
 };
 
-int		SocketHandler::create_server_socket(int port)
-{
-	int					server_socket;
-	struct sockaddr_in	server_address;
-
-	server_socket = socket(AF_INET, SOCK_STREAM, 0);
-	if (server_socket == -1)
-	{
-		std::cerr << "Error: socket creation failed" << std::endl;
-		return (-1);
-	}
-	configure_server_address(&server_address, port);
-	std::cout << "error ta vindo daqui" << std::endl;
-	bind_server_socket(server_address);
-	_server_socket = server_socket;
-	return (server_socket);
-};
 
 int		SocketHandler::configure_epoll()
 {
@@ -84,12 +67,31 @@ void	SocketHandler::configure_server_address(struct sockaddr_in *server_address,
 	server_address->sin_port = htons(port);
 };
 
-void	SocketHandler::bind_server_socket(struct sockaddr_in server_address)
+bool SocketHandler::create_server_socket(int port)
 {
-	if (bind(_server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1)
-	{
-		std::cerr << "Error: bind failed" << std::endl;
-		close(_server_socket);
-		_server_socket = -1;
-	}
+    _server_socket = socket(AF_INET, SOCK_STREAM, 0);
+    if (_server_socket == -1)
+    {
+        std::cerr << "Error: socket creation failed" << std::endl;
+        return false;
+    }
+    struct sockaddr_in server_address;
+    configure_server_address(&server_address, port);
+    if (!bind_server_socket(server_address))
+    {
+        return false;
+    }
+    return true;
+};
+
+bool SocketHandler::bind_server_socket(struct sockaddr_in &server_address)
+{
+    if (bind(_server_socket, (struct sockaddr *)&server_address, sizeof(server_address)) == -1)
+    {
+        std::cerr << "Error: bind failed" << std::endl;
+        close(_server_socket);
+        _server_socket = -1;
+        return false;
+    }
+    return true;
 };
