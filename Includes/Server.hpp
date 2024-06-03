@@ -3,30 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   Server.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/30 16:37:46 by mdouglas          #+#    #+#             */
-/*   Updated: 2024/06/02 21:50:21 by user42           ###   ########.fr       */
+/*   Created: 2024/06/03 14:07:13 by mdouglas          #+#    #+#             */
+/*   Updated: 2024/06/03 15:09:53 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "SocketHandler.hpp"
-#include "Client.hpp"
-#include "Debug.hpp"
-#include "libs.hpp"
+# include "Libs.hpp"
 
-class Server {
-    public:
-        Server();
-        void    run();
-    
-    private:
-        SocketHandler               socket_handler;
-        std::map<int, std::string>  clients;
-        Debug                       debug;
+class Server
+{
+	public:
+		Server(const char *port, const char *password);
+		~Server();
+		void run();
 
-        void    disconnect_client(int client_socket);
-        std::string                 int_to_string(int value);
+	private:
+		int							_server_fd;
+		const char					*_port;
+		const char					*_password;
+		std::vector<pollfd>			_poll_fds;
+		std::map<int, std::string>	_clients;
+
+		// server functions
+		void						init_server();
+		//void						accept_client();
+		//void						remove_client();
+		//void						send_message(int client, std::string message);
+		//void						process_message(int client, std::string message);
+		//void						handle_client_msg(int client_fd);
 };

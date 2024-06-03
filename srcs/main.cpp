@@ -3,19 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 12:55:43 by mdouglas          #+#    #+#             */
-/*   Updated: 2024/06/02 21:51:50 by user42           ###   ########.fr       */
+/*   Updated: 2024/06/03 15:13:18 by mdouglas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Server.hpp"
-#include "libs.hpp"
+#include "Libs.hpp"
 
 
-int main() {
-    Server server;
-    server.run();
+int main(int argc, char* argv[]) {
+    if (argc != 3) {
+        std::cerr << "Usage: ./server <port> <password>" << std::endl;
+        return (EXIT_FAILURE);
+    }
+    std::string port = argv[1];
+    std::string password = argv[2];
+    Server server(port.c_str(), password.c_str());
     return 0;
-}
+};
