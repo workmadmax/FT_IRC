@@ -3,14 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdouglas <mdouglas@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: user42 <user42@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 12:55:43 by mdouglas          #+#    #+#             */
-/*   Updated: 2024/05/31 14:00:27 by mdouglas         ###   ########.fr       */
+/*   Updated: 2024/06/02 21:51:50 by user42           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Server.hpp"
 #include "libs.hpp"
+
 
 int main() {
     Server server;
